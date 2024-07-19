@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 M0 = 128.5 #fg (masa inicial)
-M02 = 128.25
+M02 = 128.25 #fg (masa luego de la desorción de moléculas)
 DM = 0.23  #fg (masa de 1ML)
 
 m = 0.01 #masa de las moléculas
@@ -48,8 +48,9 @@ for i in range(t.size-1):
 #plot
 plt.figure(figsize=(6.5,5))
 plt.rcParams.update({'font.size': 15})
-plt.plot(t2, M2-M0) 
-plt.plot(t, M-M0)
+plt.plot(t2, M2-M0,label="Láser encendido") 
+plt.plot(t, M-M0,label="Láser apagado")
+plt.legend()
 plt.xlabel("Horas")
 plt.ylabel("Masa-128.5 [fg]")
-#plt.savefig("thermal-treatment-3")
+#plt.savefig("thermal-treatment.png")
